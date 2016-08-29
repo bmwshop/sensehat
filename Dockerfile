@@ -1,5 +1,5 @@
 FROM armhf/ubuntu
-
+MAINTAINER dima@us.ibm.com
 
 RUN apt-get update && apt-get install -y curl python-numpy python-pil 
 WORKDIR /tmp
@@ -17,5 +17,7 @@ ADD test.py /test.py
 
 RUN rm -f /tmp/*.deb
 RUN apt-get clean
+
+WORKDIR /
 
 CMD ["python", "/test.py"]
